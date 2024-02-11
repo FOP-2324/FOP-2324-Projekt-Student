@@ -1,0 +1,8 @@
+-Xdoclint:all,-missing
+-locale en
+-overview 'src/main/overview.html'
+-link https://docs.oracle.com/en/java/javase/17/docs/api/
+-link https://openjfx.io/javadoc/17/
+-private
+-windowtitle 'FOP Project 2023/24'
+-doctitle 'FOP Project 2023/24'

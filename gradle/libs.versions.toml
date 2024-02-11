@@ -1,0 +1,12 @@
+[versions]
+algoutils = "0.7.3-SNAPSHOT"
+
+[plugins]
+algomate = { id = "org.tudalgo.algomate", version = "0.6.1" }
+jagr = { id = "org.sourcegrade.jagr-gradle", version = "0.10.2" }
+javafxplugin = { id = "org.openjfx.javafxplugin", version = "0.1.0" }
+
+[libraries]
+algoutils-student = { module = "org.tudalgo:algoutils-student", version.ref = "algoutils" }
+algoutils-tutor = { module = "org.tudalgo:algoutils-tutor", version.ref = "algoutils" }
+junit-pioneer = { module = "org.junit-pioneer:junit-pioneer", version = "2.2.0" }
