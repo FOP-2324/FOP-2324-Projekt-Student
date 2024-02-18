@@ -328,7 +328,8 @@ public class PlayerController {
     /**
      * Checks whether the {@link Player} can build a village.
      * To build a village, the {@link Player} must have enough resources or the
-     * current objective must be {@link PlayerObjective#PLACE_VILLAGE}.
+     * current objective must be {@link PlayerObjective#PLACE_VILLAGE}. The
+     * {@link Player} must also have enough villages left.
      *
      * @return whether the {@link Player} can build a village.
      */
@@ -343,7 +344,7 @@ public class PlayerController {
      * Validates whether the {@link Player} has enough resources and whether the
      * village can be built at the given intersection.
      * Also removes the resources from the {@link Player} if the village was built
-     * and it is not the first round.
+     * and the current objective is not {@link PlayerObjective#PLACE_VILLAGE}.
      *
      * @param intersection the intersection to build the village at
      * @throws IllegalActionException if the village cannot be built
@@ -369,8 +370,8 @@ public class PlayerController {
 
     /**
      * Checks whether the {@link Player} can upgrade a village to a city.
-     * To upgrade a village to a city, the {@link Player} must have enough resources
-     * and at least one village.
+     * To upgrade a village to a city, the {@link Player} must have enough
+     * resources, at least one village and enough cities left.
      *
      * @return whether the {@link Player} can upgrade a village to a city.
      */
@@ -427,7 +428,8 @@ public class PlayerController {
     /**
      * Checks whether the {@link Player} can build a road.
      * To build a road, the {@link Player} must have enough resources or the current
-     * objective must be {@link PlayerObjective#PLACE_ROAD}.
+     * objective must be {@link PlayerObjective#PLACE_ROAD}. The {@link Player} must
+     * also have enough roads left.
      *
      * @return whether the {@link Player} can build a road.
      */
@@ -453,9 +455,9 @@ public class PlayerController {
     /**
      * Tries to build a road between the given positions.
      * Validates whether the {@link Player} has enough resources and whether the
-     * road can be built bewteen the given positions.
+     * road can be built between the given positions.
      * Also removes the resources from the {@link Player} if the road was built and
-     * it is not the first round.
+     * the current objective is not {@link PlayerObjective#PLACE_ROAD}.
      *
      * @param position0 the first position to build the road between
      * @param position1 the second position to build the road between

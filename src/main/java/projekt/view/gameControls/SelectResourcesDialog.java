@@ -26,7 +26,8 @@ public class SelectResourcesDialog extends Dialog<Map<ResourceType, Integer>> {
      *
      * @param amountToSelect        The amount of resources to select.
      * @param player                The player that is prompted to select resources.
-     * @param resourcesToSelectFrom The resources the player can select from.
+     * @param resourcesToSelectFrom The resources the player can select from. If
+     *                              null the player can select any resource.
      * @param dropCards             Whether the player should drop cards instead of
      *                              selecting them.
      */
