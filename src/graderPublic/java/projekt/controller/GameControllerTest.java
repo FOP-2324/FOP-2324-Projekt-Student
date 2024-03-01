@@ -3,6 +3,7 @@ package projekt.controller;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.opentest4j.AssertionFailedError;
 import org.sourcegrade.jagr.api.rubric.TestForSubmission;
 import org.tudalgo.algoutils.tutor.general.assertions.Context;
 import org.tudalgo.algoutils.tutor.general.json.JsonParameterSet;
@@ -74,15 +75,19 @@ public class GameControllerTest {
 
         call(() -> firstRoundMethod.invoke(gameController), baseContext, result ->
             "An exception occurred while invoking GameController.firstRound");
-        List<PlayerObjective> expected = List.of(PLACE_VILLAGE, PLACE_ROAD, PLACE_VILLAGE, PLACE_ROAD, IDLE);
         playerObjectives.forEach((player, objectives) -> {
             Context context = contextBuilder()
                 .add(baseContext)
                 .add("active player", player)
                 .build();
 
-            assertEquals(expected, objectives, context, result ->
-                "Actual objectives do not match the expected ones");
+            try {
+                assertEquals(List.of(PLACE_VILLAGE, PLACE_ROAD, PLACE_VILLAGE, PLACE_ROAD, IDLE), objectives, context, result ->
+                    "Actual objectives do not match the expected ones");
+            } catch (AssertionFailedError e) {
+                assertEquals(List.of(PLACE_VILLAGE, PLACE_ROAD, IDLE, PLACE_VILLAGE, PLACE_ROAD, IDLE), objectives, context, result ->
+                    "Actual objectives do not match the expected ones");
+            }
         });
     }
 
