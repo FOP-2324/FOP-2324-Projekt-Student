@@ -1,0 +1,38 @@
+[
+  {
+    "objectiveSet": false,
+    "hasResources": false,
+    "remainingRoads": 2,
+    "expected": false
+  },
+  {
+    "objectiveSet": true,
+    "hasResources": false,
+    "remainingRoads": 2,
+    "expected": true
+  },
+  {
+    "objectiveSet": true,
+    "hasResources": true,
+    "remainingRoads": 2,
+    "expected": true
+  },
+  {
+    "objectiveSet": true,
+    "hasResources": true,
+    "remainingRoads": 0,
+    "expected": false
+  },
+  {
+    "objectiveSet": false,
+    "hasResources": true,
+    "remainingRoads": 0,
+    "expected": false
+  },
+  {
+    "objectiveSet": false,
+    "hasResources": true,
+    "remainingRoads": 1,
+    "expected": true
+  }
+]

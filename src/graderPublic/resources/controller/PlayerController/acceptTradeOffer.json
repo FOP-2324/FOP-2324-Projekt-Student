@@ -1,0 +1,113 @@
+[
+  {
+    "accepted": false,
+    "exception": true,
+    "exceptionMessage": null,
+    "enablePlayerInventory": true,
+    "enablePartnerInventory": true,
+    "tradingPlayerSet": false,
+    "playerTradingOffer": [
+      {"key": "WOOD", "value": 1}
+    ],
+    "playerTradingRequest": [
+      {"key": "ORE", "value": 1}
+    ]
+  },
+  {
+    "accepted": false,
+    "exception": true,
+    "exceptionMessage": null,
+    "enablePlayerInventory": true,
+    "enablePartnerInventory": true,
+    "tradingPlayerSet": true,
+    "playerTradingOffer": null,
+    "playerTradingRequest": [
+      {"key": "ORE", "value": 1}
+    ]
+  },
+  {
+    "accepted": false,
+    "exception": true,
+    "exceptionMessage": null,
+    "enablePlayerInventory": true,
+    "enablePartnerInventory": true,
+    "tradingPlayerSet": true,
+    "playerTradingOffer": [
+      {"key": "WOOD", "value": 1}
+    ],
+    "playerTradingRequest": null
+  },
+  {
+    "accepted": false,
+    "exception": false,
+    "exceptionMessage": null,
+    "enablePlayerInventory": true,
+    "enablePartnerInventory": true,
+    "tradingPlayerSet": true,
+    "playerTradingOffer": [
+      {"key": "WOOD", "value": 1}
+    ],
+    "playerTradingRequest": [
+      {"key": "ORE", "value": 1}
+    ]
+  },
+  {
+    "accepted": true,
+    "exception": false,
+    "exceptionMessage": null,
+    "enablePlayerInventory": true,
+    "enablePartnerInventory": true,
+    "tradingPlayerSet": true,
+    "playerTradingOffer": [
+      {"key": "WOOD", "value": 1}
+    ],
+    "playerTradingRequest": [
+      {"key": "ORE", "value": 1}
+    ]
+  },
+  {
+    "accepted": true,
+    "exception": false,
+    "exceptionMessage": null,
+    "enablePlayerInventory": true,
+    "enablePartnerInventory": true,
+    "tradingPlayerSet": true,
+    "playerTradingOffer": [
+      {"key": "WOOD", "value": 1}
+    ],
+    "playerTradingRequest": [
+      {"key": "ORE", "value": 1},
+      {"key": "WOOL", "value": 3}
+    ]
+  },
+  {
+    "accepted": true,
+    "exception": true,
+    "exceptionMessage": "Other player does not have the offered resources",
+    "enablePlayerInventory": true,
+    "enablePartnerInventory": false,
+    "tradingPlayerSet": true,
+    "playerTradingOffer": [
+      {"key": "WOOD", "value": 1}
+    ],
+    "playerTradingRequest": [
+      {"key": "ORE", "value": 1},
+      {"key": "WOOL", "value": 3}
+    ]
+  },
+  {
+    "accepted": true,
+    "exception": true,
+    "exceptionMessage": "Player does not have the requested resources",
+    "enablePlayerInventory": false,
+    "enablePartnerInventory": true,
+    "tradingPlayerSet": true,
+    "playerTradingOffer": [
+      {"key": "WOOD", "value": 1}
+    ],
+    "playerTradingRequest": [
+      {"key": "ORE", "value": 1},
+      {"key": "WOOL", "value": 3}
+    ]
+  }
+]

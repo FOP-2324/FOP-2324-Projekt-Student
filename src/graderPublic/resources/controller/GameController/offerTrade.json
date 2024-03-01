@@ -1,0 +1,11 @@
+[
+  {
+    "acceptingPlayerIndex": 2,
+    "offer": [
+      {"key": "WOOD", "value": 1}
+    ],
+    "request": [
+      {"key": "CLAY", "value": 2}
+    ]
+  }
+]

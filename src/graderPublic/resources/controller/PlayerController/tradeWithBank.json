@@ -1,0 +1,26 @@
+[
+  {
+    "enablePlayerInventory": true,
+    "offerType": "WOOD",
+    "offerAmount": 3,
+    "request": "CLAY",
+    "tradeRatio": 3,
+    "exception": false
+  },
+  {
+    "enablePlayerInventory": true,
+    "offerType": "WOOD",
+    "offerAmount": 1,
+    "request": "CLAY",
+    "tradeRatio": 3,
+    "exception": true
+  },
+  {
+    "enablePlayerInventory": false,
+    "offerType": "WOOD",
+    "offerAmount": 3,
+    "request": "CLAY",
+    "tradeRatio": 3,
+    "exception": true
+  }
+]

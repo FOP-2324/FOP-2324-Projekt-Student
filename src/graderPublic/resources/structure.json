@@ -1,0 +1,4414 @@
+[ {
+  "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+  "identifier" : "projekt.controller.AiController",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PROTECTED", "FINAL" ],
+    "identifier" : "playerController",
+    "type" : "projekt.controller.PlayerController"
+  }, {
+    "modifiers" : [ "PROTECTED", "FINAL" ],
+    "identifier" : "hexGrid",
+    "type" : "projekt.model.HexGrid"
+  }, {
+    "modifiers" : [ "PROTECTED", "FINAL" ],
+    "identifier" : "gameState",
+    "type" : "projekt.model.GameState"
+  }, {
+    "modifiers" : [ "PROTECTED", "FINAL" ],
+    "identifier" : "activePlayerController",
+    "type" : "javafx.beans.property.Property"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PROTECTED", "ABSTRACT" ],
+    "identifier" : "executeActionBasedOnObjective",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.controller.PlayerObjective" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.controller.BasicAiController",
+  "superclass" : "projekt.controller.AiController",
+  "interfaces" : [ ],
+  "fields" : [ ],
+  "methods" : [ {
+    "modifiers" : [ "PROTECTED" ],
+    "identifier" : "executeActionBasedOnObjective",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.controller.PlayerObjective" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "selectCards",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "selectRobberTileAction",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "stealCardAction",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "buildRoad",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "buildVillage",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.controller.GameController",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "state",
+    "type" : "projekt.model.GameState"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "playerControllers",
+    "type" : "java.util.Map"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "dice",
+    "type" : "java.util.function.Supplier"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "currentDiceRoll",
+    "type" : "javafx.beans.property.IntegerProperty"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "aiControllers",
+    "type" : "java.util.List"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "availableDevelopmentCards",
+    "type" : "java.util.function.Supplier"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "roundCounter",
+    "type" : "javafx.beans.property.IntegerProperty"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "activePlayerControllerProperty",
+    "type" : "javafx.beans.property.Property"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getState",
+    "returnType" : "projekt.model.GameState",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "initPlayerControllers",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "firstRound",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getWinners",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "withActivePlayer",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.controller.PlayerController", "java.lang.Runnable" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getActivePlayerController",
+    "returnType" : "projekt.controller.PlayerController",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "diceRollSeven",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "distributeResources",
+    "returnType" : "void",
+    "parameterTypes" : [ "int" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "regularTurn",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getPlayerControllers",
+    "returnType" : "java.util.Map",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getActivePlayerControllerProperty",
+    "returnType" : "javafx.beans.property.Property",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getCurrentDiceRollProperty",
+    "returnType" : "javafx.beans.property.IntegerProperty",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getRoundCounterProperty",
+    "returnType" : "javafx.beans.property.IntegerProperty",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "setActivePlayerControllerProperty",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.Player" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "castDice",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "drawDevelopmentCard",
+    "returnType" : "projekt.model.DevelopmentCardType",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "offerTrade",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.Player", "java.util.Map", "java.util.Map" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "startGame",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.controller.PlayerController",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "player",
+    "type" : "projekt.model.Player"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "gameController",
+    "type" : "projekt.controller.GameController"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "actions",
+    "type" : "java.util.concurrent.BlockingDeque"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "playerStateProperty",
+    "type" : "javafx.beans.property.Property"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "playerObjectiveProperty",
+    "type" : "javafx.beans.property.Property"
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "tradingPlayer",
+    "type" : "projekt.model.Player"
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "playerTradingOffer",
+    "type" : "java.util.Map"
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "playerTradingRequest",
+    "type" : "java.util.Map"
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "selectedResources",
+    "type" : "java.util.Map"
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "oldResources",
+    "type" : "java.util.Map"
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "cardsToSelect",
+    "type" : "int"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "setPlayerObjective",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.controller.PlayerObjective" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "waitForNextAction",
+    "returnType" : "projekt.controller.actions.PlayerAction",
+    "parameterTypes" : [ "projekt.controller.PlayerObjective" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "waitForNextAction",
+    "returnType" : "projekt.controller.actions.PlayerAction",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PROTECTED" ],
+    "identifier" : "setPlayerTradeOffer",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.Player", "java.util.Map", "java.util.Map" ]
+  }, {
+    "modifiers" : [ "PROTECTED" ],
+    "identifier" : "resetPlayerTradeOffer",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getPlayer",
+    "returnType" : "projekt.model.Player",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "setCardsToSelect",
+    "returnType" : "void",
+    "parameterTypes" : [ "int" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "canAcceptTradeOffer",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.Player", "java.util.Map" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "offerTrade",
+    "returnType" : "void",
+    "parameterTypes" : [ "java.util.Map", "java.util.Map" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "getBuildableVillageIntersections",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "getUpgradeableVillageIntersections",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "getBuildableRoadEdges",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getPlayersToStealFrom",
+    "returnType" : "java.util.List",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "getPlayerTradingPayload",
+    "returnType" : "projekt.model.TradePayload",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "getCardsToSelect",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "getChangedResources",
+    "returnType" : "java.util.Map",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "dropSelectedResources",
+    "returnType" : "void",
+    "parameterTypes" : [ "java.util.Map" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "blockingGetNextAction",
+    "returnType" : "projekt.controller.actions.PlayerAction",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "updatePlayerState",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "canBuildVillage",
+    "returnType" : "boolean",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getPlayerObjectiveProperty",
+    "returnType" : "javafx.beans.property.Property",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "isFirstRound",
+    "returnType" : "boolean",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "canUpgradeVillage",
+    "returnType" : "boolean",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "canBuildRoad",
+    "returnType" : "boolean",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "buildRoad",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.tiles.Tile", "projekt.model.TilePosition$EdgeDirection" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "buildRoad",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.TilePosition", "projekt.model.TilePosition" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "canBuyDevelopmentCard",
+    "returnType" : "boolean",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getOtherPlayers",
+    "returnType" : "java.util.List",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getPlayerStateProperty",
+    "returnType" : "javafx.beans.property.Property",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getPlayerState",
+    "returnType" : "projekt.model.PlayerState",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "rollDice",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "processSelectedResources",
+    "returnType" : "void",
+    "parameterTypes" : [ "java.util.Map" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "triggerAction",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.controller.actions.PlayerAction" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "buildVillage",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.Intersection" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "upgradeVillage",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.Intersection" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "buyDevelopmentCard",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "playDevelopmentCard",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.DevelopmentCardType" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "tradeWithBank",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.ResourceType", "int", "projekt.model.ResourceType" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "acceptTradeOffer",
+    "returnType" : "void",
+    "parameterTypes" : [ "boolean" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "selectPlayerAndResourceToSteal",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.Player", "projekt.model.ResourceType" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "setRobberPosition",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.TilePosition" ]
+  } ]
+}, {
+  "modifiers" : [ "STATIC" ],
+  "identifier" : "projekt.controller.PlayerController$1",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "STATIC", "FINAL" ],
+    "identifier" : "$SwitchMap$projekt$model$DevelopmentCardType",
+    "type" : "[I"
+  } ],
+  "methods" : [ ]
+}, {
+  "modifiers" : [ "PUBLIC", "FINAL" ],
+  "identifier" : "projekt.controller.PlayerObjective",
+  "superclass" : "java.lang.Enum",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "DROP_CARDS",
+    "type" : "projekt.controller.PlayerObjective"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "SELECT_CARD_TO_STEAL",
+    "type" : "projekt.controller.PlayerObjective"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "SELECT_ROBBER_TILE",
+    "type" : "projekt.controller.PlayerObjective"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "REGULAR_TURN",
+    "type" : "projekt.controller.PlayerObjective"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "PLACE_VILLAGE",
+    "type" : "projekt.controller.PlayerObjective"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "PLACE_ROAD",
+    "type" : "projekt.controller.PlayerObjective"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "DICE_ROLL",
+    "type" : "projekt.controller.PlayerObjective"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "ACCEPT_TRADE",
+    "type" : "projekt.controller.PlayerObjective"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "SELECT_CARDS",
+    "type" : "projekt.controller.PlayerObjective"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "IDLE",
+    "type" : "projekt.controller.PlayerObjective"
+  }, {
+    "modifiers" : [ "FINAL" ],
+    "identifier" : "allowedActions",
+    "type" : "java.util.Set"
+  }, {
+    "modifiers" : [ "PRIVATE", "STATIC", "FINAL" ],
+    "identifier" : "$VALUES",
+    "type" : "[Lprojekt.controller.PlayerObjective;"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "values",
+    "returnType" : "[Lprojekt.controller.PlayerObjective;",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "valueOf",
+    "returnType" : "projekt.controller.PlayerObjective",
+    "parameterTypes" : [ "java.lang.String" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getAllowedActions",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "FINAL" ],
+  "identifier" : "projekt.controller.actions.AcceptTradeAction",
+  "superclass" : "java.lang.Record",
+  "interfaces" : [ "projekt.controller.actions.PlayerAction" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "accepted",
+    "type" : "boolean"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "equals",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "java.lang.Object" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "toString",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "hashCode",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "execute",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.controller.PlayerController" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "accepted",
+    "returnType" : "boolean",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "FINAL" ],
+  "identifier" : "projekt.controller.actions.BuildRoadAction",
+  "superclass" : "java.lang.Record",
+  "interfaces" : [ "projekt.controller.actions.PlayerAction" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "edge",
+    "type" : "projekt.model.buildings.Edge"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "equals",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "java.lang.Object" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "toString",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "hashCode",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "execute",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.controller.PlayerController" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "edge",
+    "returnType" : "projekt.model.buildings.Edge",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "FINAL" ],
+  "identifier" : "projekt.controller.actions.BuildVillageAction",
+  "superclass" : "java.lang.Record",
+  "interfaces" : [ "projekt.controller.actions.PlayerAction" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "intersection",
+    "type" : "projekt.model.Intersection"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "equals",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "java.lang.Object" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "toString",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "hashCode",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "execute",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.controller.PlayerController" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "intersection",
+    "returnType" : "projekt.model.Intersection",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "FINAL" ],
+  "identifier" : "projekt.controller.actions.BuyDevelopmentCardAction",
+  "superclass" : "java.lang.Record",
+  "interfaces" : [ "projekt.controller.actions.PlayerAction" ],
+  "fields" : [ ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "equals",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "java.lang.Object" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "toString",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "hashCode",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "execute",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.controller.PlayerController" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.controller.actions.EndTurnAction",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ "projekt.controller.actions.PlayerAction" ],
+  "fields" : [ ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "execute",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.controller.PlayerController" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.controller.actions.IllegalActionException",
+  "superclass" : "java.lang.Exception",
+  "interfaces" : [ ],
+  "fields" : [ ],
+  "methods" : [ ]
+}, {
+  "modifiers" : [ "PUBLIC", "FINAL" ],
+  "identifier" : "projekt.controller.actions.PlayDevelopmentCardAction",
+  "superclass" : "java.lang.Record",
+  "interfaces" : [ "projekt.controller.actions.PlayerAction" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "developmentCard",
+    "type" : "projekt.model.DevelopmentCardType"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "equals",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "java.lang.Object" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "toString",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "hashCode",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "execute",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.controller.PlayerController" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "developmentCard",
+    "returnType" : "projekt.model.DevelopmentCardType",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "INTERFACE", "ABSTRACT" ],
+  "identifier" : "projekt.controller.actions.PlayerAction",
+  "superclass" : "",
+  "interfaces" : [ ],
+  "fields" : [ ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "execute",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.controller.PlayerController" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.controller.actions.RollDiceAction",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ "projekt.controller.actions.PlayerAction" ],
+  "fields" : [ ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "execute",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.controller.PlayerController" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "FINAL" ],
+  "identifier" : "projekt.controller.actions.SelectCardsAction",
+  "superclass" : "java.lang.Record",
+  "interfaces" : [ "projekt.controller.actions.PlayerAction" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "selectedCards",
+    "type" : "java.util.Map"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "equals",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "java.lang.Object" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "toString",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "hashCode",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "execute",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.controller.PlayerController" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "selectedCards",
+    "returnType" : "java.util.Map",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "FINAL" ],
+  "identifier" : "projekt.controller.actions.SelectRobberTileAction",
+  "superclass" : "java.lang.Record",
+  "interfaces" : [ "projekt.controller.actions.PlayerAction" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "tilePosition",
+    "type" : "projekt.model.TilePosition"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "equals",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "java.lang.Object" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "toString",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "hashCode",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "execute",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.controller.PlayerController" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "tilePosition",
+    "returnType" : "projekt.model.TilePosition",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "FINAL" ],
+  "identifier" : "projekt.controller.actions.StealCardAction",
+  "superclass" : "java.lang.Record",
+  "interfaces" : [ "projekt.controller.actions.PlayerAction" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "resourceToSteal",
+    "type" : "projekt.model.ResourceType"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "playerToStealFrom",
+    "type" : "projekt.model.Player"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "equals",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "java.lang.Object" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "toString",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "hashCode",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "execute",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.controller.PlayerController" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "playerToStealFrom",
+    "returnType" : "projekt.model.Player",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "resourceToSteal",
+    "returnType" : "projekt.model.ResourceType",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "FINAL" ],
+  "identifier" : "projekt.controller.actions.TradeAction",
+  "superclass" : "java.lang.Record",
+  "interfaces" : [ "projekt.controller.actions.PlayerAction" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "payload",
+    "type" : "projekt.model.TradePayload"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "payload",
+    "returnType" : "projekt.model.TradePayload",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "equals",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "java.lang.Object" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "toString",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "hashCode",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "execute",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.controller.PlayerController" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "FINAL" ],
+  "identifier" : "projekt.controller.actions.UpgradeVillageAction",
+  "superclass" : "java.lang.Record",
+  "interfaces" : [ "projekt.controller.actions.PlayerAction" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "intersection",
+    "type" : "projekt.model.Intersection"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "equals",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "java.lang.Object" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "toString",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "hashCode",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "execute",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.controller.PlayerController" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "intersection",
+    "returnType" : "projekt.model.Intersection",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.controller.gui.AboutController",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ "projekt.controller.gui.SceneController" ],
+  "fields" : [ ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getBuilder",
+    "returnType" : "javafx.util.Builder",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getTitle",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "INTERFACE", "ABSTRACT" ],
+  "identifier" : "projekt.controller.gui.Controller",
+  "superclass" : "",
+  "interfaces" : [ ],
+  "fields" : [ ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "buildView",
+    "returnType" : "javafx.scene.layout.Region",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getBuilder",
+    "returnType" : "javafx.util.Builder",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.controller.gui.CreateGameController",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ "projekt.controller.gui.SceneController" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "builder",
+    "type" : "projekt.view.menus.CreateGameBuilder"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "gameState",
+    "type" : "projekt.model.GameState"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "playerBuilderList",
+    "type" : "javafx.collections.ObservableList"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "buildView",
+    "returnType" : "javafx.scene.layout.Region",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getBuilder",
+    "returnType" : "javafx.util.Builder",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "startGameHandler",
+    "returnType" : "boolean",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getTitle",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.controller.gui.EdgeController",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "line",
+    "type" : "projekt.view.EdgeLine"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "highlight",
+    "returnType" : "void",
+    "parameterTypes" : [ "java.util.function.Consumer" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "unhighlight",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getEdgeLine",
+    "returnType" : "projekt.view.EdgeLine",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getEdge",
+    "returnType" : "projekt.model.buildings.Edge",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.controller.gui.GameBoardController",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ "projekt.controller.gui.SceneController" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "gameState",
+    "type" : "projekt.model.GameState"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "playerActionsController",
+    "type" : "projekt.controller.gui.PlayerActionsController"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "hexGridController",
+    "type" : "projekt.controller.gui.HexGridController"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "gameBoardBuilder",
+    "type" : "projekt.view.GameBoardBuilder"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "buildView",
+    "returnType" : "javafx.scene.layout.Region",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getBuilder",
+    "returnType" : "javafx.util.Builder",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getHexGridController",
+    "returnType" : "projekt.controller.gui.HexGridController",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "updatePlayerInformation",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.Player", "java.util.Map" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getTitle",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.controller.gui.HexGridController",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ "projekt.controller.gui.Controller" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "hexGrid",
+    "type" : "projekt.model.HexGrid"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "builder",
+    "type" : "projekt.view.HexGridBuilder"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "intersectionControllers",
+    "type" : "java.util.Map"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "edgeControllers",
+    "type" : "java.util.Map"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "tileControllers",
+    "type" : "java.util.Map"
+  }, {
+    "modifiers" : [ "PRIVATE", "STATIC" ],
+    "identifier" : "lastX",
+    "type" : "double"
+  }, {
+    "modifiers" : [ "PRIVATE", "STATIC" ],
+    "identifier" : "lastY",
+    "type" : "double"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getBuilder",
+    "returnType" : "javafx.util.Builder",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "drawEdges",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "drawIntersections",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "drawTiles",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "centerPaneHandler",
+    "returnType" : "void",
+    "parameterTypes" : [ "javafx.event.Event", "javafx.scene.layout.Region" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "mouseDraggedHandler",
+    "returnType" : "void",
+    "parameterTypes" : [ "javafx.scene.input.MouseEvent", "javafx.scene.layout.Region" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "mousePressedHandler",
+    "returnType" : "void",
+    "parameterTypes" : [ "javafx.scene.input.MouseEvent" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "zoomHandler",
+    "returnType" : "void",
+    "parameterTypes" : [ "javafx.scene.input.ScrollEvent", "javafx.scene.layout.Region" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "highlightTiles",
+    "returnType" : "void",
+    "parameterTypes" : [ "java.util.function.Consumer" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getEdgeControllers",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getIntersectionControllers",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "unhighlightTiles",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getEdgeControllersMap",
+    "returnType" : "java.util.Map",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getIntersectionControllersMap",
+    "returnType" : "java.util.Map",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getHexGrid",
+    "returnType" : "projekt.model.HexGrid",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.controller.gui.IntersectionController",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ "projekt.controller.gui.Controller" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "buidler",
+    "type" : "projekt.view.IntersectionBuilder"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getBuilder",
+    "returnType" : "projekt.view.IntersectionBuilder",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "highlight",
+    "returnType" : "void",
+    "parameterTypes" : [ "java.util.function.Consumer" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "unhighlight",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getIntersection",
+    "returnType" : "projekt.model.Intersection",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.controller.gui.MainMenuSceneController",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ "projekt.controller.gui.SceneController" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "builder",
+    "type" : "javafx.util.Builder"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getBuilder",
+    "returnType" : "javafx.util.Builder",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getTitle",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.controller.gui.PlayerActionsController",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ "projekt.controller.gui.Controller" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "builder",
+    "type" : "projekt.view.gameControls.PlayerActionsBuilder"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "gameBoardController",
+    "type" : "projekt.controller.gui.GameBoardController"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "playerControllerProperty",
+    "type" : "javafx.beans.property.Property"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "playerObjectiveProperty",
+    "type" : "javafx.beans.property.Property"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "playerStateProperty",
+    "type" : "javafx.beans.property.Property"
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "playerObjectiveSubscription",
+    "type" : "javafx.util.Subscription"
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "playerStateSubscription",
+    "type" : "javafx.util.Subscription"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "getPlayer",
+    "returnType" : "projekt.model.Player",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "buildView",
+    "returnType" : "javafx.scene.layout.Region",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getBuilder",
+    "returnType" : "javafx.util.Builder",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "selectRobberTileAction",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.tiles.Tile" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "getPlayerState",
+    "returnType" : "projekt.model.PlayerState",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "acceptTradeOffer",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "getHexGridController",
+    "returnType" : "projekt.controller.gui.HexGridController",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "actionWrapper",
+    "returnType" : "java.util.function.Consumer",
+    "parameterTypes" : [ "java.util.function.Consumer", "boolean" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "removeAllHighlights",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "drawEdges",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "drawIntersections",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "getPlayerObjective",
+    "returnType" : "projekt.controller.PlayerObjective",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "updateUseDevelopmentCardButtonState",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "updatePlayerInformation",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "updateBuyDevelopmentCardButtonState",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "updateBuildVillageButtonState",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "updateUpgradeVillageButtonState",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "updateBuildRoadButtonState",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "selectCardToStealAction",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "selectResources",
+    "returnType" : "void",
+    "parameterTypes" : [ "int" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "getPlayerController",
+    "returnType" : "projekt.controller.PlayerController",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "updateUIBasedOnObjective",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.controller.PlayerObjective" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "buildActionWrapper",
+    "returnType" : "java.util.function.Consumer",
+    "parameterTypes" : [ "java.util.function.Consumer" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "buildVillageButtonAction",
+    "returnType" : "void",
+    "parameterTypes" : [ "javafx.event.ActionEvent" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "upgradeVillageButtonAction",
+    "returnType" : "void",
+    "parameterTypes" : [ "javafx.event.ActionEvent" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "buildRoadButtonAction",
+    "returnType" : "void",
+    "parameterTypes" : [ "javafx.event.ActionEvent" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "endTurnButtonAction",
+    "returnType" : "void",
+    "parameterTypes" : [ "javafx.event.ActionEvent" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "rollDiceButtonAction",
+    "returnType" : "void",
+    "parameterTypes" : [ "javafx.event.ActionEvent" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "buyDevelopmentCardButtonAction",
+    "returnType" : "void",
+    "parameterTypes" : [ "javafx.event.ActionEvent" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "useDevelopmentCardButtonAction",
+    "returnType" : "void",
+    "parameterTypes" : [ "javafx.event.ActionEvent" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "tradeButtonAction",
+    "returnType" : "void",
+    "parameterTypes" : [ "javafx.event.ActionEvent" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "abortButtonAction",
+    "returnType" : "void",
+    "parameterTypes" : [ "javafx.event.ActionEvent" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "INTERFACE", "ABSTRACT" ],
+  "identifier" : "projekt.controller.gui.SceneController",
+  "superclass" : "",
+  "interfaces" : [ "projekt.controller.gui.Controller" ],
+  "fields" : [ ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "quit",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "loadMainMenuScene",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "loadCreateGameScene",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "loadSettingsScene",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "loadHighscoreScene",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "loadGameScene",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "loadAboutScene",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getTitle",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.controller.gui.SceneSwitcher",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "stage",
+    "type" : "javafx.stage.Stage"
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "gameController",
+    "type" : "projekt.controller.GameController"
+  }, {
+    "modifiers" : [ "PRIVATE", "STATIC" ],
+    "identifier" : "INSTANCE",
+    "type" : "projekt.controller.gui.SceneSwitcher"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "gameLoopStarter",
+    "type" : "java.util.function.Consumer"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "getInstance",
+    "returnType" : "projekt.controller.gui.SceneSwitcher",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "getInstance",
+    "returnType" : "projekt.controller.gui.SceneSwitcher",
+    "parameterTypes" : [ "javafx.stage.Stage", "java.util.function.Consumer" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "loadScene",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.controller.gui.SceneSwitcher$SceneType" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+  "identifier" : "projekt.controller.gui.SceneSwitcher$SceneType",
+  "superclass" : "java.lang.Enum",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "MAIN_MENU",
+    "type" : "projekt.controller.gui.SceneSwitcher$SceneType"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "CREATE_GAME",
+    "type" : "projekt.controller.gui.SceneSwitcher$SceneType"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "GAME_BOARD",
+    "type" : "projekt.controller.gui.SceneSwitcher$SceneType"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "ABOUT",
+    "type" : "projekt.controller.gui.SceneSwitcher$SceneType"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "controller",
+    "type" : "java.util.function.Supplier"
+  }, {
+    "modifiers" : [ "PRIVATE", "STATIC", "FINAL" ],
+    "identifier" : "$VALUES",
+    "type" : "[Lprojekt.controller.gui.SceneSwitcher$SceneType;"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "values",
+    "returnType" : "[Lprojekt.controller.gui.SceneSwitcher$SceneType;",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "valueOf",
+    "returnType" : "projekt.controller.gui.SceneSwitcher$SceneType",
+    "parameterTypes" : [ "java.lang.String" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.controller.gui.tiles.TileController",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ "projekt.controller.gui.Controller" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "builder",
+    "type" : "projekt.view.tiles.TileBuilder"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getBuilder",
+    "returnType" : "projekt.view.tiles.TileBuilder",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "highlight",
+    "returnType" : "void",
+    "parameterTypes" : [ "java.util.function.Consumer" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "unhighlight",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getTile",
+    "returnType" : "projekt.model.tiles.Tile",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "FINAL" ],
+  "identifier" : "projekt.model.DevelopmentCardType",
+  "superclass" : "java.lang.Enum",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "KNIGHT",
+    "type" : "projekt.model.DevelopmentCardType"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "VICTORY_POINTS",
+    "type" : "projekt.model.DevelopmentCardType"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "ROAD_BUILDING",
+    "type" : "projekt.model.DevelopmentCardType"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "INVENTION",
+    "type" : "projekt.model.DevelopmentCardType"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "MONOPOLY",
+    "type" : "projekt.model.DevelopmentCardType"
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "iconIndex",
+    "type" : "int"
+  }, {
+    "modifiers" : [ "PRIVATE", "STATIC", "FINAL" ],
+    "identifier" : "$VALUES",
+    "type" : "[Lprojekt.model.DevelopmentCardType;"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "values",
+    "returnType" : "[Lprojekt.model.DevelopmentCardType;",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "valueOf",
+    "returnType" : "projekt.model.DevelopmentCardType",
+    "parameterTypes" : [ "java.lang.String" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "FINAL" ],
+  "identifier" : "projekt.model.GameState",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "grid",
+    "type" : "projekt.model.HexGrid"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "players",
+    "type" : "java.util.List"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "winnerProperty",
+    "type" : "javafx.beans.property.Property"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "toString",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "hashCode",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getPlayers",
+    "returnType" : "java.util.List",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getGrid",
+    "returnType" : "projekt.model.HexGrid",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "setWinner",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.Player" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getWinnerProperty",
+    "returnType" : "javafx.beans.property.Property",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "newPlayer",
+    "returnType" : "projekt.model.Player",
+    "parameterTypes" : [ "java.lang.String", "javafx.scene.paint.Color" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "addPlayer",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.Player" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "addPlayers",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "java.util.Set" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "isGameOver",
+    "returnType" : "boolean",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "INTERFACE", "ABSTRACT" ],
+  "identifier" : "projekt.model.HexGrid",
+  "superclass" : "",
+  "interfaces" : [ ],
+  "fields" : [ ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getEdges",
+    "returnType" : "java.util.Map",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "tileWidthProperty",
+    "returnType" : "javafx.beans.value.ObservableDoubleValue",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getIntersections",
+    "returnType" : "java.util.Map",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getIntersectionAt",
+    "returnType" : "projekt.model.Intersection",
+    "parameterTypes" : [ "projekt.model.TilePosition", "projekt.model.TilePosition", "projekt.model.TilePosition" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getEdge",
+    "returnType" : "projekt.model.buildings.Edge",
+    "parameterTypes" : [ "projekt.model.TilePosition", "projekt.model.TilePosition" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "addRoad",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.TilePosition", "projekt.model.TilePosition", "projekt.model.Player", "boolean" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "addRoad",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.tiles.Tile", "projekt.model.TilePosition$EdgeDirection", "projekt.model.Player", "boolean" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "removeRoad",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.buildings.Edge" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "removeRoad",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.TilePosition", "projekt.model.TilePosition" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getTileWidth",
+    "returnType" : "double",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getTileHeight",
+    "returnType" : "double",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getTileSize",
+    "returnType" : "double",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "tileHeightProperty",
+    "returnType" : "javafx.beans.value.ObservableDoubleValue",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "tileSizeProperty",
+    "returnType" : "javafx.beans.property.DoubleProperty",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getTiles",
+    "returnType" : "java.util.Map",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getTiles",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ "int" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getTileAt",
+    "returnType" : "projekt.model.tiles.Tile",
+    "parameterTypes" : [ "projekt.model.TilePosition" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getTileAt",
+    "returnType" : "projekt.model.tiles.Tile",
+    "parameterTypes" : [ "int", "int" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getRoads",
+    "returnType" : "java.util.Map",
+    "parameterTypes" : [ "projekt.model.Player" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getLongestRoad",
+    "returnType" : "java.util.List",
+    "parameterTypes" : [ "projekt.model.Player" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getRobberPosition",
+    "returnType" : "projekt.model.TilePosition",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "setRobberPosition",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.TilePosition" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.model.HexGridImpl",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ "projekt.model.HexGrid" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "tiles",
+    "type" : "java.util.Map"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "intersections",
+    "type" : "java.util.Map"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "edges",
+    "type" : "java.util.Map"
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "robberPosition",
+    "type" : "projekt.model.TilePosition"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "tileWidth",
+    "type" : "javafx.beans.value.ObservableDoubleValue"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "tileHeight",
+    "type" : "javafx.beans.value.ObservableDoubleValue"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "tileSize",
+    "type" : "javafx.beans.property.DoubleProperty"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getEdges",
+    "returnType" : "java.util.Map",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "tileWidthProperty",
+    "returnType" : "javafx.beans.value.ObservableDoubleValue",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getIntersections",
+    "returnType" : "java.util.Map",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getIntersectionAt",
+    "returnType" : "projekt.model.Intersection",
+    "parameterTypes" : [ "projekt.model.TilePosition", "projekt.model.TilePosition", "projekt.model.TilePosition" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getEdge",
+    "returnType" : "projekt.model.buildings.Edge",
+    "parameterTypes" : [ "projekt.model.TilePosition", "projekt.model.TilePosition" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "addRoad",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.TilePosition", "projekt.model.TilePosition", "projekt.model.Player", "boolean" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "removeRoad",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.TilePosition", "projekt.model.TilePosition" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getTileWidth",
+    "returnType" : "double",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getTileHeight",
+    "returnType" : "double",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getTileSize",
+    "returnType" : "double",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "tileHeightProperty",
+    "returnType" : "javafx.beans.value.ObservableDoubleValue",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "tileSizeProperty",
+    "returnType" : "javafx.beans.property.DoubleProperty",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getTiles",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ "int" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getTiles",
+    "returnType" : "java.util.Map",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getTileAt",
+    "returnType" : "projekt.model.tiles.Tile",
+    "parameterTypes" : [ "int", "int" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getTileAt",
+    "returnType" : "projekt.model.tiles.Tile",
+    "parameterTypes" : [ "projekt.model.TilePosition" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getRoads",
+    "returnType" : "java.util.Map",
+    "parameterTypes" : [ "projekt.model.Player" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getLongestRoad",
+    "returnType" : "java.util.List",
+    "parameterTypes" : [ "projekt.model.Player" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getRobberPosition",
+    "returnType" : "projekt.model.TilePosition",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "setRobberPosition",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.TilePosition" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "initTiles",
+    "returnType" : "void",
+    "parameterTypes" : [ "int", "java.util.function.Supplier", "java.util.function.Supplier" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "initIntersections",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "initEdges",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "initRobber",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "addTile",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.TilePosition", "projekt.model.tiles.Tile$Type", "java.util.function.Supplier" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "INTERFACE", "ABSTRACT" ],
+  "identifier" : "projekt.model.Intersection",
+  "superclass" : "",
+  "interfaces" : [ ],
+  "fields" : [ ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getPort",
+    "returnType" : "projekt.model.buildings.Port",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getHexGrid",
+    "returnType" : "projekt.model.HexGrid",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getAdjacentTilePositions",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "hasSettlement",
+    "returnType" : "boolean",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "playerHasSettlement",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.Player" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getConnectedEdges",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getAdjacentIntersections",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getAdjacentTiles",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "TRANSIENT", "ABSTRACT" ],
+    "identifier" : "isConnectedTo",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "[Lprojekt.model.TilePosition;" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "playerHasConnectedRoad",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.Player" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "upgradeSettlement",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.Player" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "placeVillage",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.Player", "boolean" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getSettlement",
+    "returnType" : "projekt.model.buildings.Settlement",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.model.IntersectionImpl",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ "projekt.model.Intersection" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "position0",
+    "type" : "projekt.model.TilePosition"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "position1",
+    "type" : "projekt.model.TilePosition"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "position2",
+    "type" : "projekt.model.TilePosition"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "hexGrid",
+    "type" : "projekt.model.HexGrid"
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "settlement",
+    "type" : "projekt.model.buildings.Settlement"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "equals",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "java.lang.Object" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "hashCode",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getPort",
+    "returnType" : "projekt.model.buildings.Port",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getHexGrid",
+    "returnType" : "projekt.model.HexGrid",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getAdjacentTilePositions",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "hasSettlement",
+    "returnType" : "boolean",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "playerHasSettlement",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.Player" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getConnectedEdges",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getAdjacentIntersections",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "TRANSIENT" ],
+    "identifier" : "isConnectedTo",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "[Lprojekt.model.TilePosition;" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "playerHasConnectedRoad",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.Player" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "upgradeSettlement",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.Player" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "placeVillage",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.Player", "boolean" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getSettlement",
+    "returnType" : "projekt.model.buildings.Settlement",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "INTERFACE", "ABSTRACT" ],
+  "identifier" : "projekt.model.Player",
+  "superclass" : "",
+  "interfaces" : [ ],
+  "fields" : [ ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getName",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getResources",
+    "returnType" : "java.util.Map",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getID",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getTradeRatio",
+    "returnType" : "int",
+    "parameterTypes" : [ "projekt.model.ResourceType" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getHexGrid",
+    "returnType" : "projekt.model.HexGrid",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "hasResources",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "java.util.Map" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "removeResources",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "java.util.Map" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "removeResource",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.ResourceType", "int" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "addResource",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.ResourceType", "int" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getRoads",
+    "returnType" : "java.util.Map",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getColor",
+    "returnType" : "javafx.scene.paint.Color",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "isAi",
+    "returnType" : "boolean",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getVictoryPoints",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "addResources",
+    "returnType" : "void",
+    "parameterTypes" : [ "java.util.Map" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getRemainingRoads",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getRemainingVillages",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getRemainingCities",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getSettlements",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getDevelopmentCards",
+    "returnType" : "java.util.Map",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "addDevelopmentCard",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.DevelopmentCardType" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "removeDevelopmentCard",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.DevelopmentCardType" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getTotalDevelopmentCards",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getKnightsPlayed",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.model.PlayerImpl",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ "projekt.model.Player" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "hexGrid",
+    "type" : "projekt.model.HexGrid"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "name",
+    "type" : "java.lang.String"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "id",
+    "type" : "int"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "color",
+    "type" : "javafx.scene.paint.Color"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "ai",
+    "type" : "boolean"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "resources",
+    "type" : "java.util.Map"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "developmentCards",
+    "type" : "java.util.Map"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "playedDevelopmentCards",
+    "type" : "java.util.Map"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getName",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "toString",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getResources",
+    "returnType" : "java.util.Map",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getID",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getTradeRatio",
+    "returnType" : "int",
+    "parameterTypes" : [ "projekt.model.ResourceType" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getHexGrid",
+    "returnType" : "projekt.model.HexGrid",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "hasResources",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "java.util.Map" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "removeResources",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "java.util.Map" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "removeResource",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.ResourceType", "int" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "addResource",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.ResourceType", "int" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getColor",
+    "returnType" : "javafx.scene.paint.Color",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "isAi",
+    "returnType" : "boolean",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getVictoryPoints",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "addResources",
+    "returnType" : "void",
+    "parameterTypes" : [ "java.util.Map" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getRemainingRoads",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getRemainingVillages",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getRemainingCities",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getDevelopmentCards",
+    "returnType" : "java.util.Map",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "addDevelopmentCard",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.DevelopmentCardType" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "removeDevelopmentCard",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.DevelopmentCardType" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getTotalDevelopmentCards",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getKnightsPlayed",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "STATIC" ],
+  "identifier" : "projekt.model.PlayerImpl$Builder",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "id",
+    "type" : "int"
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "color",
+    "type" : "javafx.scene.paint.Color"
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "name",
+    "type" : "java.lang.String"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "ai",
+    "type" : "javafx.beans.property.SimpleBooleanProperty"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getName",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "name",
+    "returnType" : "projekt.model.PlayerImpl$Builder",
+    "parameterTypes" : [ "java.lang.String" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "id",
+    "returnType" : "projekt.model.PlayerImpl$Builder",
+    "parameterTypes" : [ "int" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getId",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "color",
+    "returnType" : "projekt.model.PlayerImpl$Builder",
+    "parameterTypes" : [ "javafx.scene.paint.Color" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "build",
+    "returnType" : "projekt.model.Player",
+    "parameterTypes" : [ "projekt.model.HexGrid" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getColor",
+    "returnType" : "javafx.scene.paint.Color",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "isAi",
+    "returnType" : "boolean",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "ai",
+    "returnType" : "projekt.model.PlayerImpl$Builder",
+    "parameterTypes" : [ "boolean" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "nameOrDefault",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "aiProperty",
+    "returnType" : "javafx.beans.property.SimpleBooleanProperty",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "FINAL" ],
+  "identifier" : "projekt.model.PlayerState",
+  "superclass" : "java.lang.Record",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "buildableVillageIntersections",
+    "type" : "java.util.Set"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "upgradableVillageIntersections",
+    "type" : "java.util.Set"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "buildableRoadEdges",
+    "type" : "java.util.Set"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "playersToStealFrom",
+    "type" : "java.util.List"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "offeredTrade",
+    "type" : "projekt.model.TradePayload"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "cardsToSelect",
+    "type" : "int"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "changedResources",
+    "type" : "java.util.Map"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "equals",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "java.lang.Object" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "toString",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "hashCode",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "cardsToSelect",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "buildableVillageIntersections",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "buildableRoadEdges",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "playersToStealFrom",
+    "returnType" : "java.util.List",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "upgradableVillageIntersections",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "offeredTrade",
+    "returnType" : "projekt.model.TradePayload",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "changedResources",
+    "returnType" : "java.util.Map",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "FINAL" ],
+  "identifier" : "projekt.model.ResourceType",
+  "superclass" : "java.lang.Enum",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "WOOD",
+    "type" : "projekt.model.ResourceType"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "CLAY",
+    "type" : "projekt.model.ResourceType"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "WOOL",
+    "type" : "projekt.model.ResourceType"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "GRAIN",
+    "type" : "projekt.model.ResourceType"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "ORE",
+    "type" : "projekt.model.ResourceType"
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "color",
+    "type" : "javafx.scene.paint.Color"
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "iconIndex",
+    "type" : "int"
+  }, {
+    "modifiers" : [ "PRIVATE", "STATIC", "FINAL" ],
+    "identifier" : "$VALUES",
+    "type" : "[Lprojekt.model.ResourceType;"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "values",
+    "returnType" : "[Lprojekt.model.ResourceType;",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "valueOf",
+    "returnType" : "projekt.model.ResourceType",
+    "parameterTypes" : [ "java.lang.String" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "FINAL" ],
+  "identifier" : "projekt.model.TilePosition",
+  "superclass" : "java.lang.Record",
+  "interfaces" : [ "java.lang.Comparable" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "q",
+    "type" : "int"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "r",
+    "type" : "int"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "equals",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "java.lang.Object" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "toString",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "hashCode",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "compareTo",
+    "returnType" : "int",
+    "parameterTypes" : [ "projekt.model.TilePosition" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "scale",
+    "returnType" : "projekt.model.TilePosition",
+    "parameterTypes" : [ "projekt.model.TilePosition", "int" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "add",
+    "returnType" : "projekt.model.TilePosition",
+    "parameterTypes" : [ "projekt.model.TilePosition", "projekt.model.TilePosition" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "s",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "q",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "r",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "subtract",
+    "returnType" : "projekt.model.TilePosition",
+    "parameterTypes" : [ "projekt.model.TilePosition", "projekt.model.TilePosition" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "neighbour",
+    "returnType" : "projekt.model.TilePosition",
+    "parameterTypes" : [ "projekt.model.TilePosition", "projekt.model.TilePosition$EdgeDirection" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "forEachRing",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.TilePosition", "int", "java.util.function.BiConsumer" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "neighbours",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ "projekt.model.TilePosition" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "forEachSpiral",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.TilePosition", "int", "java.util.function.BiConsumer" ]
+  } ]
+}, {
+  "modifiers" : [ "STATIC" ],
+  "identifier" : "projekt.model.TilePosition$1",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "STATIC", "FINAL" ],
+    "identifier" : "$SwitchMap$projekt$model$TilePosition$EdgeDirection",
+    "type" : "[I"
+  } ],
+  "methods" : [ ]
+}, {
+  "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+  "identifier" : "projekt.model.TilePosition$EdgeDirection",
+  "superclass" : "java.lang.Enum",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "EAST",
+    "type" : "projekt.model.TilePosition$EdgeDirection"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "NORTH_EAST",
+    "type" : "projekt.model.TilePosition$EdgeDirection"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "NORTH_WEST",
+    "type" : "projekt.model.TilePosition$EdgeDirection"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "WEST",
+    "type" : "projekt.model.TilePosition$EdgeDirection"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "SOUTH_WEST",
+    "type" : "projekt.model.TilePosition$EdgeDirection"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "SOUTH_EAST",
+    "type" : "projekt.model.TilePosition$EdgeDirection"
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "position",
+    "type" : "projekt.model.TilePosition"
+  }, {
+    "modifiers" : [ "PRIVATE", "STATIC", "FINAL" ],
+    "identifier" : "$VALUES",
+    "type" : "[Lprojekt.model.TilePosition$EdgeDirection;"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "values",
+    "returnType" : "[Lprojekt.model.TilePosition$EdgeDirection;",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "valueOf",
+    "returnType" : "projekt.model.TilePosition$EdgeDirection",
+    "parameterTypes" : [ "java.lang.String" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "stream",
+    "returnType" : "java.util.stream.Stream",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "left",
+    "returnType" : "projekt.model.TilePosition$EdgeDirection",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "right",
+    "returnType" : "projekt.model.TilePosition$EdgeDirection",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getLeftIntersection",
+    "returnType" : "projekt.model.TilePosition$IntersectionDirection",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getRightIntersection",
+    "returnType" : "projekt.model.TilePosition$IntersectionDirection",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "fromRelativePosition",
+    "returnType" : "projekt.model.TilePosition$EdgeDirection",
+    "parameterTypes" : [ "projekt.model.TilePosition" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+  "identifier" : "projekt.model.TilePosition$IntersectionDirection",
+  "superclass" : "java.lang.Enum",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "NORTH",
+    "type" : "projekt.model.TilePosition$IntersectionDirection"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "NORTH_EAST",
+    "type" : "projekt.model.TilePosition$IntersectionDirection"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "SOUTH_EAST",
+    "type" : "projekt.model.TilePosition$IntersectionDirection"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "SOUTH",
+    "type" : "projekt.model.TilePosition$IntersectionDirection"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "SOUTH_WEST",
+    "type" : "projekt.model.TilePosition$IntersectionDirection"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "NORTH_WEST",
+    "type" : "projekt.model.TilePosition$IntersectionDirection"
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "leftDirection",
+    "type" : "projekt.model.TilePosition$EdgeDirection"
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "rightDirection",
+    "type" : "projekt.model.TilePosition$EdgeDirection"
+  }, {
+    "modifiers" : [ "PRIVATE", "STATIC", "FINAL" ],
+    "identifier" : "$VALUES",
+    "type" : "[Lprojekt.model.TilePosition$IntersectionDirection;"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "values",
+    "returnType" : "[Lprojekt.model.TilePosition$IntersectionDirection;",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "valueOf",
+    "returnType" : "projekt.model.TilePosition$IntersectionDirection",
+    "parameterTypes" : [ "java.lang.String" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "FINAL" ],
+  "identifier" : "projekt.model.TradePayload",
+  "superclass" : "java.lang.Record",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "offer",
+    "type" : "java.util.Map"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "request",
+    "type" : "java.util.Map"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "withBank",
+    "type" : "boolean"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "player",
+    "type" : "projekt.model.Player"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "equals",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "java.lang.Object" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "toString",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "hashCode",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "offer",
+    "returnType" : "java.util.Map",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "withBank",
+    "returnType" : "boolean",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "player",
+    "returnType" : "projekt.model.Player",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "request",
+    "returnType" : "java.util.Map",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "INTERFACE", "ABSTRACT" ],
+  "identifier" : "projekt.model.buildings.Edge",
+  "superclass" : "",
+  "interfaces" : [ ],
+  "fields" : [ ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getPort",
+    "returnType" : "projekt.model.buildings.Port",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getHexGrid",
+    "returnType" : "projekt.model.HexGrid",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getPosition1",
+    "returnType" : "projekt.model.TilePosition",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getPosition2",
+    "returnType" : "projekt.model.TilePosition",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getRoadOwnerProperty",
+    "returnType" : "javafx.beans.property.Property",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getIntersections",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getAdjacentTilePositions",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getConnectedEdges",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "hasPort",
+    "returnType" : "boolean",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "connectsTo",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.buildings.Edge" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "hasRoad",
+    "returnType" : "boolean",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getRoadOwner",
+    "returnType" : "projekt.model.Player",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getConnectedRoads",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ "projekt.model.Player" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "FINAL" ],
+  "identifier" : "projekt.model.buildings.EdgeImpl",
+  "superclass" : "java.lang.Record",
+  "interfaces" : [ "projekt.model.buildings.Edge" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "grid",
+    "type" : "projekt.model.HexGrid"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "position1",
+    "type" : "projekt.model.TilePosition"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "position2",
+    "type" : "projekt.model.TilePosition"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "roadOwner",
+    "type" : "javafx.beans.property.Property"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "port",
+    "type" : "projekt.model.buildings.Port"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "equals",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "java.lang.Object" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "toString",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "hashCode",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "port",
+    "returnType" : "projekt.model.buildings.Port",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getPort",
+    "returnType" : "projekt.model.buildings.Port",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getHexGrid",
+    "returnType" : "projekt.model.HexGrid",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getPosition1",
+    "returnType" : "projekt.model.TilePosition",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getPosition2",
+    "returnType" : "projekt.model.TilePosition",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getRoadOwnerProperty",
+    "returnType" : "javafx.beans.property.Property",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getIntersections",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "position1",
+    "returnType" : "projekt.model.TilePosition",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "position2",
+    "returnType" : "projekt.model.TilePosition",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "hasPort",
+    "returnType" : "boolean",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "connectsTo",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.buildings.Edge" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getConnectedRoads",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ "projekt.model.Player" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "grid",
+    "returnType" : "projekt.model.HexGrid",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "roadOwner",
+    "returnType" : "javafx.beans.property.Property",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "FINAL" ],
+  "identifier" : "projekt.model.buildings.Port",
+  "superclass" : "java.lang.Record",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "ratio",
+    "type" : "int"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "resourceType",
+    "type" : "projekt.model.ResourceType"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "equals",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "java.lang.Object" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "toString",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "hashCode",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "resourceType",
+    "returnType" : "projekt.model.ResourceType",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "ratio",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "FINAL" ],
+  "identifier" : "projekt.model.buildings.Settlement",
+  "superclass" : "java.lang.Record",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "owner",
+    "type" : "projekt.model.Player"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "type",
+    "type" : "projekt.model.buildings.Settlement$Type"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "intersection",
+    "type" : "projekt.model.Intersection"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "type",
+    "returnType" : "projekt.model.buildings.Settlement$Type",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "equals",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "java.lang.Object" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "toString",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "hashCode",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "owner",
+    "returnType" : "projekt.model.Player",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "intersection",
+    "returnType" : "projekt.model.Intersection",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+  "identifier" : "projekt.model.buildings.Settlement$Type",
+  "superclass" : "java.lang.Enum",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "VILLAGE",
+    "type" : "projekt.model.buildings.Settlement$Type"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "CITY",
+    "type" : "projekt.model.buildings.Settlement$Type"
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "resourceAmount",
+    "type" : "int"
+  }, {
+    "modifiers" : [ "PRIVATE", "STATIC", "FINAL" ],
+    "identifier" : "$VALUES",
+    "type" : "[Lprojekt.model.buildings.Settlement$Type;"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "values",
+    "returnType" : "[Lprojekt.model.buildings.Settlement$Type;",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "valueOf",
+    "returnType" : "projekt.model.buildings.Settlement$Type",
+    "parameterTypes" : [ "java.lang.String" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "INTERFACE", "ABSTRACT" ],
+  "identifier" : "projekt.model.tiles.Tile",
+  "superclass" : "",
+  "interfaces" : [ ],
+  "fields" : [ ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getType",
+    "returnType" : "projekt.model.tiles.Tile$Type",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getNeighbours",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getNeighbour",
+    "returnType" : "projekt.model.tiles.Tile",
+    "parameterTypes" : [ "projekt.model.TilePosition$EdgeDirection" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "hasRobber",
+    "returnType" : "boolean",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getHexGrid",
+    "returnType" : "projekt.model.HexGrid",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getIntersections",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getEdge",
+    "returnType" : "projekt.model.buildings.Edge",
+    "parameterTypes" : [ "projekt.model.TilePosition$EdgeDirection" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "addRoad",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.TilePosition$EdgeDirection", "projekt.model.Player", "boolean" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "placeVillage",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.TilePosition$IntersectionDirection", "projekt.model.Player", "boolean" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getSettlements",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getRollNumber",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getIntersectionPositions",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ "projekt.model.TilePosition$IntersectionDirection" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "widthProperty",
+    "returnType" : "javafx.beans.value.ObservableDoubleValue",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "heightProperty",
+    "returnType" : "javafx.beans.value.ObservableDoubleValue",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getIntersection",
+    "returnType" : "projekt.model.Intersection",
+    "parameterTypes" : [ "projekt.model.TilePosition$IntersectionDirection" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+    "identifier" : "getPosition",
+    "returnType" : "projekt.model.TilePosition",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+  "identifier" : "projekt.model.tiles.Tile$Type",
+  "superclass" : "java.lang.Enum",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "WOODLAND",
+    "type" : "projekt.model.tiles.Tile$Type"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "MEADOW",
+    "type" : "projekt.model.tiles.Tile$Type"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "FARMLAND",
+    "type" : "projekt.model.tiles.Tile$Type"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "HILL",
+    "type" : "projekt.model.tiles.Tile$Type"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "MOUNTAIN",
+    "type" : "projekt.model.tiles.Tile$Type"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "DESERT",
+    "type" : "projekt.model.tiles.Tile$Type"
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "color",
+    "type" : "javafx.scene.paint.Color"
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "resourceType",
+    "type" : "projekt.model.ResourceType"
+  }, {
+    "modifiers" : [ "PRIVATE", "STATIC", "FINAL" ],
+    "identifier" : "$VALUES",
+    "type" : "[Lprojekt.model.tiles.Tile$Type;"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "values",
+    "returnType" : "[Lprojekt.model.tiles.Tile$Type;",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "valueOf",
+    "returnType" : "projekt.model.tiles.Tile$Type",
+    "parameterTypes" : [ "java.lang.String" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "FINAL" ],
+  "identifier" : "projekt.model.tiles.TileImpl",
+  "superclass" : "java.lang.Record",
+  "interfaces" : [ "projekt.model.tiles.Tile" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "position",
+    "type" : "projekt.model.TilePosition"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "type",
+    "type" : "projekt.model.tiles.Tile$Type"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "rollNumber",
+    "type" : "int"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "heightProperty",
+    "type" : "javafx.beans.value.ObservableDoubleValue"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "widthProperty",
+    "type" : "javafx.beans.value.ObservableDoubleValue"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "hexGrid",
+    "type" : "projekt.model.HexGrid"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "type",
+    "returnType" : "projekt.model.tiles.Tile$Type",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "equals",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "java.lang.Object" ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "toString",
+    "returnType" : "java.lang.String",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC", "FINAL" ],
+    "identifier" : "hashCode",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "position",
+    "returnType" : "projekt.model.TilePosition",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getType",
+    "returnType" : "projekt.model.tiles.Tile$Type",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "hexGrid",
+    "returnType" : "projekt.model.HexGrid",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getHexGrid",
+    "returnType" : "projekt.model.HexGrid",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getIntersections",
+    "returnType" : "java.util.Set",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getEdge",
+    "returnType" : "projekt.model.buildings.Edge",
+    "parameterTypes" : [ "projekt.model.TilePosition$EdgeDirection" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "addRoad",
+    "returnType" : "boolean",
+    "parameterTypes" : [ "projekt.model.TilePosition$EdgeDirection", "projekt.model.Player", "boolean" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getRollNumber",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "rollNumber",
+    "returnType" : "int",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "widthProperty",
+    "returnType" : "javafx.beans.value.ObservableDoubleValue",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "heightProperty",
+    "returnType" : "javafx.beans.value.ObservableDoubleValue",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getPosition",
+    "returnType" : "projekt.model.TilePosition",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.CardPane",
+  "superclass" : "javafx.scene.layout.StackPane",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "STATIC", "FINAL" ],
+    "identifier" : "defaultCardWidth",
+    "type" : "int"
+  } ],
+  "methods" : [ ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.ColoredImageView",
+  "superclass" : "javafx.scene.image.ImageView",
+  "interfaces" : [ ],
+  "fields" : [ ],
+  "methods" : [ {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "colorize",
+    "returnType" : "void",
+    "parameterTypes" : [ "javafx.scene.paint.Color" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.DevelopmentCardPane",
+  "superclass" : "projekt.view.CardPane",
+  "interfaces" : [ ],
+  "fields" : [ ],
+  "methods" : [ ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.EdgeLine",
+  "superclass" : "javafx.scene.shape.Line",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "edge",
+    "type" : "projekt.model.buildings.Edge"
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "distance",
+    "type" : "double"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "strokeWidth",
+    "type" : "int"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "positionOffset",
+    "type" : "double"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "outline",
+    "type" : "javafx.scene.shape.Line"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "init",
+    "returnType" : "void",
+    "parameterTypes" : [ "double" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "init",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "highlight",
+    "returnType" : "void",
+    "parameterTypes" : [ "java.util.function.Consumer" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "unhighlight",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getOutline",
+    "returnType" : "javafx.scene.shape.Line",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getEdge",
+    "returnType" : "projekt.model.buildings.Edge",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.GameBoardBuilder",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ "javafx.util.Builder" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "hexGrid",
+    "type" : "javafx.scene.layout.Region"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "actions",
+    "type" : "java.util.function.Supplier"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "playerInformation",
+    "type" : "javafx.scene.layout.Pane"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "diceRollProperty",
+    "type" : "javafx.beans.property.IntegerProperty"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "roundCounterProperty",
+    "type" : "javafx.beans.property.IntegerProperty"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "build",
+    "returnType" : "javafx.scene.layout.Region",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "setRoundCounter",
+    "returnType" : "void",
+    "parameterTypes" : [ "int" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "setDiceRoll",
+    "returnType" : "void",
+    "parameterTypes" : [ "int" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "updatePlayerInformation",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.Player", "java.util.List", "java.util.Map" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.HexGridBuilder",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ "javafx.util.Builder" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "grid",
+    "type" : "projekt.model.HexGrid"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "scrollHandler",
+    "type" : "java.util.function.BiConsumer"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "pressedHandler",
+    "type" : "java.util.function.Consumer"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "draggedHandler",
+    "type" : "java.util.function.BiConsumer"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "maxPoint",
+    "type" : "javafx.geometry.Point2D"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "minPoint",
+    "type" : "javafx.geometry.Point2D"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "centerButtonHandler",
+    "type" : "java.util.function.BiConsumer"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "intersectionBuilders",
+    "type" : "java.util.Set"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "edgeLines",
+    "type" : "java.util.Set"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "tileBuilders",
+    "type" : "java.util.Set"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "hexGridPane",
+    "type" : "javafx.scene.layout.Pane"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "build",
+    "returnType" : "javafx.scene.layout.Region",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "drawEdges",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "drawIntersections",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "drawTiles",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "calculatePositionTranslation",
+    "returnType" : "javafx.geometry.Point2D",
+    "parameterTypes" : [ "projekt.model.TilePosition" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "calculatePositionTranslationOffset",
+    "returnType" : "javafx.geometry.Point2D",
+    "parameterTypes" : [ "projekt.model.TilePosition" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "calculateIntersectionTranslation",
+    "returnType" : "javafx.geometry.Point2D",
+    "parameterTypes" : [ "projekt.model.Intersection" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "calculatePositionCenterOffset",
+    "returnType" : "javafx.geometry.Point2D",
+    "parameterTypes" : [ "projekt.model.TilePosition" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "placeTile",
+    "returnType" : "javafx.scene.layout.Region",
+    "parameterTypes" : [ "projekt.view.tiles.TileBuilder" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "placeIntersection",
+    "returnType" : "javafx.scene.layout.Region",
+    "parameterTypes" : [ "projekt.view.IntersectionBuilder" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "placeEdge",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.view.EdgeLine" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "placePort",
+    "returnType" : "void",
+    "parameterTypes" : [ "projekt.model.buildings.Edge" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.IntegerField",
+  "superclass" : "javafx.scene.control.TextField",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "valueProperty",
+    "type" : "javafx.beans.property.IntegerProperty"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "setValue",
+    "returnType" : "void",
+    "parameterTypes" : [ "int" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "setValue",
+    "returnType" : "void",
+    "parameterTypes" : [ "java.lang.Number" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "valueProperty",
+    "returnType" : "javafx.beans.property.ReadOnlyIntegerProperty",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.IntersectionBuilder",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ "javafx.util.Builder" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "intersection",
+    "type" : "projekt.model.Intersection"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "pane",
+    "type" : "javafx.scene.layout.StackPane"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "build",
+    "returnType" : "javafx.scene.layout.Region",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "highlight",
+    "returnType" : "void",
+    "parameterTypes" : [ "java.util.function.Consumer" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "unhighlight",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "addSettlement",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getIntersection",
+    "returnType" : "projekt.model.Intersection",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.PlayerLabel",
+  "superclass" : "javafx.scene.control.Label",
+  "interfaces" : [ ],
+  "fields" : [ ],
+  "methods" : [ ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.PortBuilder",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ "javafx.util.Builder" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "width",
+    "type" : "javafx.beans.value.ObservableDoubleValue"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "edge",
+    "type" : "projekt.model.buildings.Edge"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "height",
+    "type" : "javafx.beans.value.ObservableDoubleValue"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "node0",
+    "type" : "javafx.geometry.Point2D"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "node1",
+    "type" : "javafx.geometry.Point2D"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "build",
+    "returnType" : "javafx.scene.layout.Region",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "initConnections",
+    "returnType" : "java.util.List",
+    "parameterTypes" : [ "javafx.geometry.Point2D" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.ResourceCardPane",
+  "superclass" : "projekt.view.CardPane",
+  "interfaces" : [ ],
+  "fields" : [ ],
+  "methods" : [ ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.Sprite",
+  "superclass" : "projekt.view.ColoredImageView",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "imageIndex",
+    "type" : "javafx.beans.property.IntegerProperty"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "initialize",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "setViewport",
+    "returnType" : "void",
+    "parameterTypes" : [ "double" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "imageIndexProperty",
+    "returnType" : "javafx.beans.property.IntegerProperty",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "FINAL" ],
+  "identifier" : "projekt.view.Utils",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "positiveIntegerFilter",
+    "type" : "java.util.function.UnaryOperator"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "resourcesSpriteSheet",
+    "type" : "javafx.scene.image.Image"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "settlementsSpriteSheet",
+    "type" : "javafx.scene.image.Image"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "developmentCardsSpriteSheet",
+    "type" : "javafx.scene.image.Image"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "emptyCardImage",
+    "type" : "javafx.scene.image.Image"
+  }, {
+    "modifiers" : [ "PUBLIC", "STATIC", "FINAL" ],
+    "identifier" : "robberImage",
+    "type" : "javafx.scene.image.Image"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC", "STATIC" ],
+    "identifier" : "attachTooltip",
+    "returnType" : "void",
+    "parameterTypes" : [ "java.lang.String", "javafx.scene.Node" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.gameControls.AcceptTradeDialog",
+  "superclass" : "javafx.scene.control.Dialog",
+  "interfaces" : [ ],
+  "fields" : [ ],
+  "methods" : [ ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.gameControls.PlayerActionsBuilder",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ "javafx.util.Builder" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "buildVillageButtonAction",
+    "type" : "java.util.function.Consumer"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "upgradeVillageButtonAction",
+    "type" : "java.util.function.Consumer"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "buildRoadButtonAction",
+    "type" : "java.util.function.Consumer"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "buyDevelopmentCardButtonAction",
+    "type" : "java.util.function.Consumer"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "playDevelopmentCardButtonAction",
+    "type" : "java.util.function.Consumer"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "endTurnButtonAction",
+    "type" : "java.util.function.Consumer"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "rollDiceButtonAction",
+    "type" : "java.util.function.Consumer"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "tradeButtonAction",
+    "type" : "java.util.function.Consumer"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "abortButtonAction",
+    "type" : "java.util.function.Consumer"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "mainBox",
+    "type" : "javafx.scene.layout.HBox"
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "abortNode",
+    "type" : "javafx.scene.Node"
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "buildRoadNode",
+    "type" : "javafx.scene.Node"
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "buildVillageNode",
+    "type" : "javafx.scene.Node"
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "upgradeVillageNode",
+    "type" : "javafx.scene.Node"
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "buyDevelopmentCardNode",
+    "type" : "javafx.scene.Node"
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "playDevelopmentCardNode",
+    "type" : "javafx.scene.Node"
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "endTurnNode",
+    "type" : "javafx.scene.Node"
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "rollDiceNode",
+    "type" : "javafx.scene.Node"
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "tradeNode",
+    "type" : "javafx.scene.Node"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "build",
+    "returnType" : "javafx.scene.layout.Region",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "disableAllButtons",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "enableEndTurnButton",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "enableRollDiceButton",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "enableTradeButton",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "enableAllButtons",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "disableEndTurnButton",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "disableRollDiceButton",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "disableTradeButton",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "enableBuildVillageButton",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "disableBuildVillageButton",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "enableUpgradeVillageButton",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "disableUpgradeVillageButton",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "enableBuildRoadButton",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "disableBuildRoadButton",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "enableBuyDevelopmentCardButton",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "disableBuyDevelopmentCardButton",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "enablePlayDevelopmentCardButton",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "disablePlayDevelopmentCardButton",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "disableAbortButton",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "enableAbortButton",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.gameControls.PlayerInformationBuilder",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ "javafx.util.Builder" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "player",
+    "type" : "projekt.model.Player"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "changedResources",
+    "type" : "java.util.Map"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "build",
+    "returnType" : "javafx.scene.layout.Region",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.gameControls.PlayersOverviewBuilder",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ "javafx.util.Builder" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "players",
+    "type" : "java.util.List"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "build",
+    "returnType" : "javafx.scene.layout.Region",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "createPlayerTiltedPane",
+    "returnType" : "javafx.scene.control.TitledPane",
+    "parameterTypes" : [ "projekt.model.Player", "int" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "createValuePane",
+    "returnType" : "javafx.scene.layout.StackPane",
+    "parameterTypes" : [ "java.lang.String" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "createValuePane",
+    "returnType" : "javafx.scene.layout.StackPane",
+    "parameterTypes" : [ "java.lang.String", "javafx.scene.image.Image" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.gameControls.SelectCardToStealDialog",
+  "superclass" : "javafx.scene.control.Dialog",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "selectedResource",
+    "type" : "javafx.collections.ObservableMap"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "selectedCard",
+    "type" : "javafx.beans.property.ObjectProperty"
+  } ],
+  "methods" : [ ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.gameControls.SelectResourcesDialog",
+  "superclass" : "javafx.scene.control.Dialog",
+  "interfaces" : [ ],
+  "fields" : [ ],
+  "methods" : [ {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "init",
+    "returnType" : "javafx.scene.layout.Region",
+    "parameterTypes" : [ "int", "projekt.model.Player", "java.util.Map", "boolean" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.gameControls.TradeDialog",
+  "superclass" : "javafx.scene.control.Dialog",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "selectedBankOffer",
+    "type" : "javafx.beans.property.ObjectProperty"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "selectedBankRequest",
+    "type" : "javafx.beans.property.ObjectProperty"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "playerOffer",
+    "type" : "java.util.Map"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "playerRequest",
+    "type" : "java.util.Map"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "createBankTradeTab",
+    "returnType" : "javafx.scene.control.Tab",
+    "parameterTypes" : [ "projekt.model.TradePayload" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "createPlayerTradeTab",
+    "returnType" : "javafx.scene.control.Tab",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "getSelectableResourceCard",
+    "returnType" : "projekt.view.CardPane",
+    "parameterTypes" : [ "projekt.model.ResourceType", "javafx.beans.property.Property" ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.gameControls.UseDevelopmentCardDialog",
+  "superclass" : "javafx.scene.control.Dialog",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "selectedCard",
+    "type" : "javafx.beans.property.ObjectProperty"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "selectedDevelopmentCard",
+    "type" : "javafx.beans.property.ObjectProperty"
+  } ],
+  "methods" : [ ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.menus.AboutBuilder",
+  "superclass" : "projekt.view.menus.MenuBuilder",
+  "interfaces" : [ ],
+  "fields" : [ ],
+  "methods" : [ {
+    "modifiers" : [ "PROTECTED" ],
+    "identifier" : "initCenter",
+    "returnType" : "javafx.scene.Node",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.menus.CreateGameBuilder",
+  "superclass" : "projekt.view.menus.MenuBuilder",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "observablePlayers",
+    "type" : "javafx.collections.ObservableList"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "startGameHandler",
+    "type" : "java.util.function.Supplier"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PROTECTED" ],
+    "identifier" : "initCenter",
+    "returnType" : "javafx.scene.Node",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "createAddPlayerButton",
+    "returnType" : "javafx.scene.Node",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "removePlayer",
+    "returnType" : "void",
+    "parameterTypes" : [ "int" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "createBotOrPlayerSelector",
+    "returnType" : "javafx.scene.Node",
+    "parameterTypes" : [ "projekt.model.PlayerImpl$Builder" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "createPlayerColorPicker",
+    "returnType" : "javafx.scene.Node",
+    "parameterTypes" : [ "projekt.model.PlayerImpl$Builder" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "createRemovePlayerButton",
+    "returnType" : "javafx.scene.control.Button",
+    "parameterTypes" : [ "int" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "nextPlayerBuilder",
+    "returnType" : "projekt.model.PlayerImpl$Builder",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.menus.MainMenuBuilder",
+  "superclass" : "projekt.view.menus.MenuBuilder",
+  "interfaces" : [ ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "loadGameScene",
+    "type" : "java.lang.Runnable"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "loadSettingsScene",
+    "type" : "java.lang.Runnable"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "loadHighscoreScene",
+    "type" : "java.lang.Runnable"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "loadAboutScene",
+    "type" : "java.lang.Runnable"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PROTECTED" ],
+    "identifier" : "initCenter",
+    "returnType" : "javafx.scene.Node",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC", "ABSTRACT" ],
+  "identifier" : "projekt.view.menus.MenuBuilder",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ "javafx.util.Builder" ],
+  "fields" : [ {
+    "modifiers" : [ "PROTECTED", "FINAL" ],
+    "identifier" : "root",
+    "type" : "javafx.scene.layout.BorderPane"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "returnText",
+    "type" : "java.lang.String"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "returnHandler",
+    "type" : "java.lang.Runnable"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "title",
+    "type" : "java.lang.String"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PROTECTED" ],
+    "identifier" : "init",
+    "returnType" : "void",
+    "parameterTypes" : [ "java.lang.String" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "build",
+    "returnType" : "javafx.scene.layout.Region",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PROTECTED", "ABSTRACT" ],
+    "identifier" : "initCenter",
+    "returnType" : "javafx.scene.Node",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "modifiers" : [ "PUBLIC" ],
+  "identifier" : "projekt.view.tiles.TileBuilder",
+  "superclass" : "java.lang.Object",
+  "interfaces" : [ "javafx.util.Builder" ],
+  "fields" : [ {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "tile",
+    "type" : "projekt.model.tiles.Tile"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "pane",
+    "type" : "javafx.scene.layout.StackPane"
+  }, {
+    "modifiers" : [ "PRIVATE", "FINAL" ],
+    "identifier" : "resourceIcon",
+    "type" : "projekt.view.Sprite"
+  } ],
+  "methods" : [ {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "build",
+    "returnType" : "javafx.scene.layout.Region",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "highlight",
+    "returnType" : "void",
+    "parameterTypes" : [ "java.lang.Runnable" ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "unhighlight",
+    "returnType" : "void",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PUBLIC" ],
+    "identifier" : "getTile",
+    "returnType" : "projekt.model.tiles.Tile",
+    "parameterTypes" : [ ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "styleAndSizeTile",
+    "returnType" : "void",
+    "parameterTypes" : [ "javafx.scene.layout.StackPane" ]
+  }, {
+    "modifiers" : [ "PRIVATE" ],
+    "identifier" : "createLabels",
+    "returnType" : "javafx.scene.layout.VBox",
+    "parameterTypes" : [ ]
+  } ]
+} ]

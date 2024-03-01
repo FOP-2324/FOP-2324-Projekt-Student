@@ -1,0 +1,41 @@
+[
+  {
+    "backing": [
+      {"key": "CLAY", "value": 5},
+      {"key": "WOOD", "value": 3}
+    ],
+    "resource": "CLAY",
+    "amount": 2,
+    "result": true
+  },
+  {
+    "backing": [
+      {"key": "GRAIN", "value": 1},
+      {"key": "ORE", "value": 2},
+      {"key": "WOOD", "value": 3}
+    ],
+    "resource": "CLAY",
+    "amount": 1,
+    "result": false
+  },
+  {
+    "backing": [
+      {"key": "GRAIN", "value": 1},
+      {"key": "ORE", "value": 2},
+      {"key": "WOOD", "value": 3}
+    ],
+    "resource": "GRAIN",
+    "amount": 1,
+    "result": true
+  },
+  {
+    "backing": [
+      {"key": "GRAIN", "value": 1},
+      {"key": "ORE", "value": 2},
+      {"key": "WOOD", "value": 3}
+    ],
+    "resource": "ORE",
+    "amount": 3,
+    "result": false
+  }
+]

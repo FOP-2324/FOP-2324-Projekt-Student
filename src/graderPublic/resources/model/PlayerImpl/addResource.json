@@ -1,0 +1,7 @@
+[
+  {"resource": "WOOD", "amount": 4},
+  {"resource": "CLAY", "amount": 3},
+  {"resource": "WOOL", "amount": 2},
+  {"resource": "GRAIN", "amount": 1},
+  {"resource": "ORE", "amount": 0}
+]

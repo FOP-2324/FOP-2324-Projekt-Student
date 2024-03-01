@@ -1,0 +1,38 @@
+[
+  {
+    "objectiveSet": false,
+    "hasResources": false,
+    "remainingVillages": 2,
+    "expected": false
+  },
+  {
+    "objectiveSet": true,
+    "hasResources": false,
+    "remainingVillages": 2,
+    "expected": true
+  },
+  {
+    "objectiveSet": true,
+    "hasResources": true,
+    "remainingVillages": 2,
+    "expected": true
+  },
+  {
+    "objectiveSet": true,
+    "hasResources": true,
+    "remainingVillages": 0,
+    "expected": false
+  },
+  {
+    "objectiveSet": false,
+    "hasResources": true,
+    "remainingVillages": 0,
+    "expected": false
+  },
+  {
+    "objectiveSet": false,
+    "hasResources": true,
+    "remainingVillages": 1,
+    "expected": true
+  }
+]

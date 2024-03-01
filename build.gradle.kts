@@ -2,6 +2,7 @@ import org.sourcegrade.jagr.gradle.task.grader.GraderRunTask
 
 plugins {
     alias(libs.plugins.algomate)
+    alias(libs.plugins.jagr)
     alias(libs.plugins.javafxplugin)
 }
 
@@ -50,10 +51,6 @@ jagr {
 }
 
 tasks {
-    withType<GraderRunTask> {
-        doFirst {
-            throw GradleException("Public tests will be released in the next few days.")
-        }
     javadoc {
         options.jFlags?.add("-Duser.language=en")
         options.optionFiles = mutableListOf(project.file("src/main/javadoc.options"))

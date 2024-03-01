@@ -1,0 +1,25 @@
+[
+  {
+    "pairs": []
+  },
+  {
+    "pairs": [
+      {
+        "tilePosition1": {"q": 0, "r": 0},
+        "tilePosition2": {"q": 0, "r": 1}
+      }
+    ]
+  },
+  {
+    "pairs": [
+      {
+        "tilePosition1": {"q": 0, "r": 0},
+        "tilePosition2": {"q": 0, "r": 1}
+      },
+      {
+        "tilePosition1": {"q": 0, "r": 0},
+        "tilePosition2": {"q": 1, "r": 0}
+      }
+    ]
+  }
+]

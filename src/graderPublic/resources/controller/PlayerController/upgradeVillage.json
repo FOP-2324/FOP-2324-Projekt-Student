@@ -1,0 +1,14 @@
+[
+  {
+    "canUpgradeVillage": true,
+    "exception": false
+  },
+  {
+    "canUpgradeVillage": true,
+    "exception": true
+  },
+  {
+    "canUpgradeVillage": false,
+    "exception": true
+  }
+]

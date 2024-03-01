@@ -1,0 +1,22 @@
+[
+  {
+    "firstRound": true,
+    "canBuildRoad": true,
+    "exception": false
+  },
+  {
+    "firstRound": false,
+    "canBuildRoad": true,
+    "exception": false
+  },
+  {
+    "firstRound": true,
+    "canBuildRoad": false,
+    "exception": true
+  },
+  {
+    "firstRound": false,
+    "canBuildRoad": false,
+    "exception": true
+  }
+]

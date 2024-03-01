@@ -1,0 +1,87 @@
+[
+  {
+    "backing": [
+      {"key": "CLAY", "value": 5},
+      {"key": "WOOD", "value": 3}
+    ],
+    "input": [
+      {"key": "CLAY", "value": 2}
+    ],
+    "result": true,
+    "result_add": [
+      {"key": "CLAY", "value": 7},
+      {"key": "WOOD", "value": 3}
+    ]
+  },
+  {
+    "backing": [
+      {"key": "CLAY", "value": 5},
+      {"key": "WOOD", "value": 3}
+    ],
+    "input": [
+      {"key": "CLAY", "value": 5}
+    ],
+    "result": true,
+    "result_add": [
+      {"key": "CLAY", "value": 10},
+      {"key": "WOOD", "value": 3}
+    ]
+  },
+  {
+    "backing": [
+      {"key": "CLAY", "value": 5},
+      {"key": "WOOD", "value": 3}
+    ],
+    "input": [
+      {"key": "ORE", "value": 2}
+    ],
+    "result": false,
+    "result_add": [
+      {"key": "CLAY", "value": 5},
+      {"key": "WOOD", "value": 3},
+      {"key": "ORE", "value": 2}
+    ]
+  },
+  {
+    "backing": [
+      {"key": "CLAY", "value": 5},
+      {"key": "WOOD", "value": 3}
+    ],
+    "input": [
+      {"key": "WOOD", "value": 5}
+    ],
+    "result": false,
+    "result_add": [
+      {"key": "CLAY", "value": 5},
+      {"key": "WOOD", "value": 8}
+    ]
+  },
+  {
+    "backing": [
+      {"key": "CLAY", "value": 5},
+      {"key": "WOOD", "value": 3}
+    ],
+    "input": [
+      {"key": "WOOD", "value": 2},
+      {"key": "ORE", "value": 1}
+    ],
+    "result": false,
+    "result_add": [
+      {"key": "CLAY", "value": 5},
+      {"key": "WOOD", "value": 5},
+      {"key": "ORE", "value": 1}
+    ]
+  },
+  {
+    "backing": [],
+    "input": [
+      {"key": "WOOD", "value": 2},
+      {"key": "ORE", "value": 1}
+    ],
+    "result": false,
+    "result_add": [
+      {"key": "WOOD", "value": 2},
+      {"key": "ORE", "value": 1}
+    ]
+  }
+]

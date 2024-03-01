@@ -1,0 +1,22 @@
+[
+  {
+    "firstRound": true,
+    "canBuildVillage": true,
+    "exception": false
+  },
+  {
+    "firstRound": false,
+    "canBuildVillage": true,
+    "exception": false
+  },
+  {
+    "firstRound": true,
+    "canBuildVillage": false,
+    "exception": true
+  },
+  {
+    "firstRound": false,
+    "canBuildVillage": false,
+    "exception": true
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "backing": [],
+    "input": "KNIGHT",
+    "totalCards": 0,
+    "result": false
+  },
+  {
+    "backing": [
+      {"key": "KNIGHT", "value": 1}
+    ],
+    "input": "KNIGHT",
+    "totalCards": 1,
+    "result": true
+  },
+  {
+    "backing": [
+      {"key": "KNIGHT", "value": 3},
+      {"key": "MONOPOLY", "value": 2}
+    ],
+    "input": "MONOPOLY",
+    "totalCards": 5,
+    "result": true
+  },
+  {
+    "backing": [
+      {"key": "KNIGHT", "value": 3},
+      {"key": "MONOPOLY", "value": 2}
+    ],
+    "input": "ROAD_BUILDING",
+    "totalCards": 5,
+    "result": false
+  }
+]
