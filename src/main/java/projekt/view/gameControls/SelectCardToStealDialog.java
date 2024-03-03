@@ -72,8 +72,8 @@ public class SelectCardToStealDialog extends Dialog<Entry<Player, ResourceType>>
                     });
                     final HBox resourceBox = new HBox(resourceCard);
                     GridPane.setHgrow(resourceBox, Priority.ALWAYS);
-                    mainPane.add(resourceBox, j + cardCount + 1, players.indexOf(player));
                     cardCount++;
+                    mainPane.add(resourceBox, cardCount, players.indexOf(player));
                 }
             }
         }
