@@ -333,10 +333,10 @@ public class PlayerController {
      *
      * @return whether the {@link Player} can build a village.
      */
-    @StudentImplementationRequired("H2.5")
+    @StudentImplementationRequired("H2.4")
     public boolean canBuildVillage() {
-        // TODO: H2.5
-        return org.tudalgo.algoutils.student.Student.crash("H2.5 - Remove if implemented");
+        // TODO: H2.4
+        return org.tudalgo.algoutils.student.Student.crash("H2.4 - Remove if implemented");
     }
 
     /**
@@ -349,10 +349,10 @@ public class PlayerController {
      * @param intersection the intersection to build the village at
      * @throws IllegalActionException if the village cannot be built
      */
-    @StudentImplementationRequired("H2.5")
+    @StudentImplementationRequired("H2.4")
     public void buildVillage(final Intersection intersection) throws IllegalActionException {
-        // TODO: H2.5
-        org.tudalgo.algoutils.student.Student.crash("H2.5 - Remove if implemented");
+        // TODO: H2.4
+        org.tudalgo.algoutils.student.Student.crash("H2.4 - Remove if implemented");
     }
 
     /**
@@ -392,10 +392,10 @@ public class PlayerController {
      * @param intersection the intersection to upgrade the village at
      * @throws IllegalActionException if the village cannot be upgraded
      */
-    @StudentImplementationRequired("H2.6")
+    @StudentImplementationRequired("H2.5")
     public void upgradeVillage(final Intersection intersection) throws IllegalActionException {
-        // TODO: H2.6
-        org.tudalgo.algoutils.student.Student.crash("H2.6 - Remove if implemented");
+        // TODO: H2.5
+        org.tudalgo.algoutils.student.Student.crash("H2.5 - Remove if implemented");
     }
 
     /**
@@ -433,10 +433,10 @@ public class PlayerController {
      *
      * @return whether the {@link Player} can build a road.
      */
-    @StudentImplementationRequired("H2.5")
+    @StudentImplementationRequired("H2.4")
     public boolean canBuildRoad() {
-        // TODO: H2.5
-        return org.tudalgo.algoutils.student.Student.crash("H2.5 - Remove if implemented");
+        // TODO: H2.4
+        return org.tudalgo.algoutils.student.Student.crash("H2.4 - Remove if implemented");
     }
 
     /**
@@ -463,10 +463,10 @@ public class PlayerController {
      * @param position1 the second position to build the road between
      * @throws IllegalActionException if the road cannot be built
      */
-    @StudentImplementationRequired("H2.5")
+    @StudentImplementationRequired("H2.4")
     public void buildRoad(final TilePosition position0, final TilePosition position1) throws IllegalActionException {
-        // TODO: H2.5
-        org.tudalgo.algoutils.student.Student.crash("H2.5 - Remove if implemented");
+        // TODO: H2.4
+        org.tudalgo.algoutils.student.Student.crash("H2.4 - Remove if implemented");
     }
 
     // Development card methods
