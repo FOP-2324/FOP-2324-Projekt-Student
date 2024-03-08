@@ -38,7 +38,7 @@ configurations.all {
 
 javafx {
     version = "21"
-    modules("javafx.controls", "javafx.fxml", "javafx.swing")
+    modules("javafx.controls", "javafx.fxml", "javafx.swing", "javafx.media")
 }
 
 jagr {
