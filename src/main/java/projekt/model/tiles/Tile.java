@@ -175,7 +175,7 @@ public interface Tile {
      * @return whether the robber is currently on this tile
      */
     default boolean hasRobber() {
-        return getHexGrid().getRobberPosition().equals(getPosition());
+        return getPosition().equals(getHexGrid().getRobberPosition());
     }
 
     /**
