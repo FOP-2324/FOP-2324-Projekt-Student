@@ -20,12 +20,12 @@ import java.util.Set;
  */
 @DoNotTouch
 public record PlayerState(
-    Set<Intersection> buildableVillageIntersections,
-    Set<Intersection> upgradableVillageIntersections,
-    Set<Edge> buildableRoadEdges,
-    List<Player> playersToStealFrom,
-    TradePayload offeredTrade,
-    int cardsToSelect,
-    Map<ResourceType, Integer> changedResources
-) {
+        Set<Intersection> buildableVillageIntersections,
+        Set<Intersection> upgradableVillageIntersections,
+        Set<Edge> buildableRoadEdges,
+        List<Player> playersToStealFrom,
+        TradePayload offeredTrade,
+        int cardsToSelect,
+        Map<ResourceType, Integer> changedResources,
+        PlayerObjective playerObjective) {
 }
