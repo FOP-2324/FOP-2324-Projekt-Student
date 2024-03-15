@@ -95,11 +95,11 @@ public class PlayerControllerMock extends PlayerController implements MockClass<
     }
 
     @Override
-    public Property<PlayerObjective> getPlayerObjectiveProperty()  {
-        if (useDelegate.test("getPlayerObjectiveProperty")) {
-            return super.getPlayerObjectiveProperty();
+    public PlayerObjective getPlayerObjective() {
+        if (useDelegate.test("getPlayerObjective")) {
+            return super.getPlayerObjective();
         } else {
-            return (Property<PlayerObjective>) methodAction.apply("getPlayerObjectiveProperty", new Object[] {this});
+            return (PlayerObjective) methodAction.apply("getPlayerObjective", new Object[] { this });
         }
     }
 
