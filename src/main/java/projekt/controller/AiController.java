@@ -36,7 +36,8 @@ public abstract class AiController {
         this.hexGrid = hexGrid;
         this.gameState = gameState;
         this.activePlayerController = activePlayerController;
-        playerController.getPlayerObjectiveProperty().subscribe(this::executeActionBasedOnObjective);
+        playerController.getPlayerStateProperty()
+                .subscribe(state -> executeActionBasedOnObjective(state.playerObjective()));
     }
 
     /**
