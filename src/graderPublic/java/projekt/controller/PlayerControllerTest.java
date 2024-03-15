@@ -154,8 +154,8 @@ public class PlayerControllerTest {
                     result -> "Trading partner's inventory does not equal the expected state");
             }
 
-            assertEquals(PlayerObjective.IDLE, playerController.getPlayerObjectiveProperty().getValue(), context, result ->
-                "PlayerController.acceptTradeOffer did not set the player objective to IDLE");
+            assertEquals(PlayerObjective.IDLE, playerController.getPlayerObjective(), context,
+                    result -> "PlayerController.acceptTradeOffer did not set the player objective to IDLE");
         }
     }
 

@@ -50,19 +50,24 @@ public class GameControllerTest {
         playerObjectives = players.stream()
             .collect(Collectors.toMap(Function.identity(), player -> new ArrayList<>()));
         playerControllers = players.stream()
-            .collect(Collectors.toMap(Function.identity(), player -> new PlayerControllerMock(gameController, player,
-                Predicate.not(List.of("blockingGetNextAction", "waitForNextAction")::contains),
-                (methodName, params) -> switch (methodName) {
-                    case "blockingGetNextAction", "waitForNextAction" -> {
-                        if (methodName.equals("waitForNextAction") && params.length == 2 && params[1] instanceof PlayerObjective nextObjective) {
-                            ((PlayerController) params[0]).setPlayerObjective(nextObjective);
-                        }
-                        yield playerAction.get();
-                    }
-                    default -> null;
-                }) {{
-                    getPlayerObjectiveProperty().addListener((observable, oldValue, newValue) -> playerObjectives.get(getPlayer()).add(newValue));
-                }}));
+                .collect(Collectors.toMap(Function.identity(),
+                        player -> new PlayerControllerMock(gameController, player,
+                                Predicate.not(List.of("blockingGetNextAction", "waitForNextAction")::contains),
+                                (methodName, params) -> switch (methodName) {
+                                    case "blockingGetNextAction", "waitForNextAction" -> {
+                                        if (methodName.equals("waitForNextAction") && params.length == 2
+                                                && params[1] instanceof PlayerObjective nextObjective) {
+                                            ((PlayerController) params[0]).setPlayerObjective(nextObjective);
+                                        }
+                                        yield playerAction.get();
+                                    }
+                                    default -> null;
+                                }) {
+                            {
+                                getPlayerStateProperty().addListener((observable, oldValue,
+                                        newValue) -> playerObjectives.get(getPlayer()).add(newValue.playerObjective()));
+                            }
+                        }));
         Field playerControllersField = GameController.class.getDeclaredField("playerControllers");
         playerControllersField.trySetAccessible();
         playerControllersField.set(gameController, playerControllers);
